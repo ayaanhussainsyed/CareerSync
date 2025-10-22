@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    /* Removed overflow: hidden; to allow scrolling */
+    font-family: "Inter", sans-serif;
+    background-color: #000; /* Set a black background for the body */
+}
+canvas {
+    display: block;
+    position: fixed; /* Position canvas behind content */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure canvas covers full width */
+    height: 100%; /* Ensure canvas covers full height */
+    z-index: -1; /* Ensure canvas is behind content */
+}
+.content {
+    position: relative; /* Ensure content is above canvas */
+    z-index: 1;
+    color: white; /* Default text color for content */
+    margin-top: 150px; /* Adjusted margin-top to prevent overlap with fixed navbar */
+    padding: 20px; /* Add padding for better spacing */
+    text-align: center; /* Center content within the div */
+}
+
+h1{
+    font-weight: bolder;
+    font-size:70px;
+    margin-bottom: 30px; /* Space below heading */
+}
+
+#responseArea {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 8px;
+    max-width: 800px; /* Limit width of the response area */
+    margin-left: auto; /* Center the block */
+    margin-right: auto; /* Center the block */
+    text-align: left; /* Align text left within the response area */
+    white-space: pre-wrap; /* Preserve formatting from AI response */
+    word-wrap: break-word; /* Prevent overflow */
+    min-height: 100px; /* Give it some minimum height */
+}
+
+.upload-section, .voice-section {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hide the actual file input */
+.upload-section input[type="file"] {
+    display: none;
+}
+
+/* Style the custom file upload button (label) */
+.custom-file-upload {
+     background-color: white; /* Gray-700 from Tailwind */
+     color: black;
+     padding: 12px 24px;
+     font-size: 1.125rem; /* text-lg from Tailwind */
+     border: none;
+     border-radius: 20px;
+     transition: background-color 0.3s ease;
+     cursor: pointer; /* Indicate it's clickable */
+     margin-bottom: 20px; /* Space below the custom button */
+     display: inline-block; /* Allows padding and margin */
+}
+
+ .custom-file-upload:hover {
+     background-color: #e0e0e0; /* Slightly darker on hover */
+ }
+
+
+.upload-section button, .voice-section button {
+    background-color: white; /* Gray-700 from Tailwind */
+     color: black;
+     padding: 12px 24px;
+     font-size: 1.125rem; /* text-lg from Tailwind */
+    border: none;
+    border-radius: 20px;
+     transition: background-color 0.3s ease;
+     cursor: pointer; /* Indicate it's clickable */
+}
+
+ .upload-section button:hover, .voice-section button:hover {
+     background-color: #e0e0e0; /* Slightly darker on hover */
+ }
+
+
+#voiceInputStatus {
+    margin-top: 10px;
+    font-style: italic;
+    color: #ccc;
+}

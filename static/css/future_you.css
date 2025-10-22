@@ -1,0 +1,177 @@
+body{
+    background-color: black;
+    color:white;
+    font-family: 'Inter',sans-serif;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding-top: 70px; /* Add padding for fixed navbar */
+     /* Prevent scrollbar initially if content is small, only show if needed */
+     overflow-y: auto;
+     box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Styles for the sequential fade-in animation */
+/* Initial state: invisible */
+.hero,
+.start {
+    opacity: 0;
+}
+
+/* Visible state with transition */
+.is-visible {
+    opacity: 1;
+    transition: opacity 1s ease-in; /* Adjust duration and timing function as needed */
+}
+
+
+.hero h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bolder;
+    font-size:70px;
+    text-align: center;
+    margin-bottom: 20px; /* Space below heading */
+}
+ /* No longer need .hero display: block; margin: auto; as parent body is handling centering */
+.hero{
+     text-align: center; /* Center text and inline elements within hero */
+     /* Add some margin below hero if needed for spacing from button */
+     margin-bottom: 30px; /* Example margin */
+}
+
+.hero dotlottie-player {
+    display: block; /* Make lottie player a block element */
+    margin: 20px auto; /* Center lottie player and add vertical margin */
+}
+
+
+.start{
+    background-color:white;
+    width: 100px;
+    border:none;
+    display: block;
+    margin: 20px auto; /* Center button and add vertical margin */
+    border-radius: 7px;
+    height:40px;
+    cursor: pointer; /* Add cursor pointer */
+}
+
+.start svg {
+    transition: transform 0.3s ease;
+}
+
+.start:hover svg {
+    transform: translateX(5px);
+}
+
+/* Modal specific styling for dark theme */
+.modal-content {
+    background-color: #1c1c1c; /* Darker background */
+    color: white;
+    border: 1px solid #333;
+}
+
+.modal-header {
+    border-bottom-color: #333;
+}
+
+.modal-footer {
+    border-top-color: #333;
+}
+
+.modal .btn-close {
+    filter: invert(1); /* Make close button white */
+}
+
+/* Style for the button within the modal footer if needed */
+.modal-footer .btn {
+    /* Add specific styles for modal buttons here */
+}
+
+.response {
+    display: none; /* Initially hidden */
+    margin: 40px auto; /* Add some space above/below */
+    background-color: #F0E68C; /* Example background */
+    color: black; /* Text color for readability on light background */
+    font-family: 'IBM Plex Mono', sans-serif;
+    height: fit-content;
+    width: 80%; /* Make it responsive */
+    max-width: 800px; /* Max width for larger screens */
+    padding: 20px; /* Add padding */
+    border-radius: 8px; /* Rounded corners */
+    overflow-wrap: break-word; /* Prevent text overflow */
+     flex-shrink: 0; /* Prevent response div from shrinking during animation */
+}
+
+ /* Style for elements rendered by Markdown *within* the response div */
+ .response h1, .response h2, .response h3, .response h4, .response h5, .response h6 {
+    color: #333; /* Darker color for headings */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: bold; /* Ensure headings are bold */
+ }
+ /* Adjust heading sizes */
+ .response h1 { font-size: 2.5em; }
+ .response h2 { font-size: 2em; }
+ .response h3 { font-size: 1.5em; }
+ .response h4 { font-size: 1.2em; }
+ .response h5 { font-size: 1em; }
+ .response h6 { font-size: 0.8em; }
+
+
+ .response p {
+    margin-bottom: 10px; /* Space below paragraphs */
+    line-height: 1.6; /* Increase line height for readability */
+ }
+ .response ul, .response ol {
+    margin-bottom: 10px; /* Space below lists */
+    padding-left: 20px; /* Indent lists */
+ }
+ .response li {
+    margin-bottom: 5px; /* Space between list items */
+ }
+ .response strong {
+    font-weight: bold; /* Ensure bold text is visually distinct */
+ }
+/* Add styles for horizontal rules if AI uses them */
+.response hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin: 20px 0;
+}
+.close{
+    background-color: #0CA37F;
+    color:white;
+    width:fit-content;
+    height:40px;
+    padding:5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer; /* Add cursor pointer */
+}
+
+.future {
+    color: transparent;
+/* Add a third color to the gradient for a potentially smoother loop transition */
+background-image: linear-gradient(to right, #FFE0F6, #5DB1EA, #FFE0F6);
+-webkit-background-clip: text;
+background-clip: text;
+/* Set the background size to be wider than the text */
+background-size: 200% auto; /* Adjust percentage as needed for desired effect */
+/* Apply the animation: name, duration, timing function, iteration count, direction */
+animation: gradient-animation 1s linear infinite alternate; /* Adjust duration as needed */
+cursor: pointer;
+}
+
+/* Define the keyframes for the gradient animation */
+@keyframes gradient-animation {
+0% {
+    background-position: 0% 50%; /* Start the gradient from the left */
+}
+100% {
+    background-position: 100% 50%; /* Move the gradient to the right */
+}
+}

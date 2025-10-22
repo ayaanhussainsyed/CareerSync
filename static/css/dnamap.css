@@ -1,0 +1,177 @@
+body {
+    background: black;
+    background-size: 400% 400%;
+    animation: gradientFlow 9s ease infinite;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Cascadia Code', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 70px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero-block-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      flex-shrink: 0;
+      font-family: 'Montserrat', sans-serif;
+      justify-content: center;
+  }
+
+  .hero h1 {
+      margin: 0;
+      font-weight: bolder;
+      font-size: 50px;
+  }
+
+  .hero dotlottie-player {
+      height: 200px !important;
+      width: 200px !important;
+      display: inline-block;
+      vertical-align: middle;
+  }
+
+  .start {
+      background-color: white;
+      width: 300px;
+      border: none;
+      border-radius: 7px;
+      height: 40px;
+      text-align: center;
+      cursor: pointer;
+      display: flex; /* Use flexbox for content centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      gap: 5px; /* Space between text and SVG */
+  }
+
+  .start svg {
+      transition: transform 0.3s ease;
+  }
+
+  .start:hover svg {
+      transform: translateX(5px);
+  }
+
+  .high {
+      background-color: #BA9964;
+      padding: 5px;
+      border-radius: 5px;
+  }
+
+  .assess-section {
+      font-family: 'Montserrat', sans-serif;
+      align-self: flex-start;
+      width: 100%;
+      padding-left: 20px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out;
+  }
+
+  .assess-section.visible {
+      opacity: 1;
+      max-height: 2000px;
+      overflow: visible;
+  }
+
+  .container input,
+  .container select {
+      width: 30%;
+  }
+
+  .container h4 {
+      font-size: 19px;
+  }
+
+  .form-range,
+  .form-label {
+      margin-left: 60px;
+  }
+
+  .assess-section .start {
+      margin-top: 20px;
+      margin-bottom: 50px;
+      margin-left: 20px;
+      width: auto; /* Allow button to size based on content */
+      padding: 0 15px; /* Add some horizontal padding */
+  }
+
+  .modal-content {
+      background-color: #1c1c1c;
+      color: white;
+      border: 1px solid #333;
+  }
+
+  .modal-header {
+      border-bottom-color: #333;
+  }
+
+  .modal-footer {
+      border-top-color: #333;
+  }
+
+  .close {
+      background-color: #0CA37F;
+      color: white;
+      width: fit-content;
+      height: 40px;
+      padding: 5px 15px; /* Adjust padding */
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex; /* Use flexbox for content centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      gap: 5px; /* Space between text and SVG */
+  }
+
+  #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: transparent;
+  }
+
+  .dna {
+      color: transparent;
+      background-image: linear-gradient(to right, #FFE0F6, #9ACD32, #FFE0F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: gradient-animation 1s linear infinite alternate;
+      cursor: pointer;
+  }
+
+  @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+  }

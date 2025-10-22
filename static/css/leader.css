@@ -1,0 +1,237 @@
+body{
+    background-color: black;
+    color:white;
+    font-family: 'Inter',sans-serif;
+     /* Add padding at the bottom equal to the height of the fixed input bar */
+     padding-bottom: 80px; /* Adjust based on the height of .chat-input-container */
+     min-height: 100vh; /* Ensure body takes full height */
+     display: flex; /* Make body a flex container */
+     flex-direction: column; /* Stack children vertically */
+     /* justify-content: flex-start; Align items to the top for main content */
+     /* align-items: center; Center items horizontally */
+     padding-top: 70px; /* Keep padding for fixed navbar */
+     opacity: 0; /* Start invisible */
+    animation: fadeIn 1s ease-in forwards; /* Apply the animation */
+     box-sizing: border-box;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+ /* Ensure main content container has flexible growth */
+.container {
+    flex-grow: 1; /* Allow the main content area to take available space */
+    margin-top: 20px; /* Add some space below the navbar */
+    margin-bottom: 20px; /* Add space above the chat input (if not fixed) */
+    width: 100%; /* Use full width */
+    max-width: 900px; /* Limit content width on large screens */
+    padding: 0 15px; /* Add horizontal padding */
+     /* If using fixed position input, this container doesn't need margin-bottom: auto */
+     display: flex; /* Make container a flex container */
+     flex-direction: column; /* Stack children vertically */
+}
+
+#chat-box {
+    flex-grow: 1; /* Allow chat box to take available space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-top: 20px;
+    padding-bottom: 20px;
+    display: flex; /* Use flexbox for messages */
+    flex-direction: column; /* Stack messages vertically */
+}
+
+ /* Style for the fixed chat input container at the bottom */
+.chat-input-container {
+    position: fixed; /* Fix it to the viewport */
+    bottom: 0;       /* Align to the bottom edge */
+    left: 0;         /* Align to the left edge */
+    right: 0;        /* Align to the right edge */
+    width: 100%;     /* Take full width */
+    background-color: #1c1c1c; /* Dark background, slightly lighter than body */
+    padding: 10px 20px; /* Add padding inside the container */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Optional shadow at the top */
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+ /* Style for the form within the container */
+.chat-input-container form {
+    display: flex; /* Use flex to align input and button */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between input and button */
+    max-width: 900px; /* Limit the width of the form itself */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+ /* Style for the textarea (the chat input area) */
+.chat-input-container textarea {
+    flex-grow: 1; /* Allow textarea to take up available space */
+    padding: 10px 15px; /* Padding inside the input */
+    border: 1px solid #333; /* Border color */
+    border-radius: 25px; /* Rounded corners */
+    background-color: #2a2a2a; /* Slightly lighter dark background */
+    color: white; /* Text color */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    resize: none; /* Prevent manual resizing by user */
+    outline: none; /* Remove outline on focus */
+     /* Optional: Smooth transition for border or shadow on focus */
+     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+     /* Set a min-height for one line, will expand with rows="1" */
+     min-height: 45px; /* Adjust based on padding and font-size for one line */
+     line-height: 1.5; /* Ensure text spacing */
+     overflow-y: auto; /* Allow scrolling for longer messages */
+}
+
+ /* Optional: Style textarea on focus */
+.chat-input-container textarea:focus {
+    border-color: #5DB1EA; /* Highlight color on focus */
+     box-shadow: 0 0 5px rgba(93, 177, 234, 0.5); /* Optional glow */
+}
+
+
+ /* Style for the send button */
+.chat-input-container .send-button {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    padding: 10px 20px; /* Padding inside button */
+    border: none; /* No border */
+    border-radius: 25px; /* Rounded corners (can be fully rounded if desired) */
+    background-color: #5DB1EA; /* Button background color */
+    color: white; /* Button text color */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    cursor: pointer; /* Indicate it's clickable */
+    transition: background-color 0.2s ease-in-out; /* Smooth hover transition */
+    display: flex; /* Use flex to center icon and text */
+    align-items: center; /* Vertically center items */
+    gap: 5px; /* Space between "Send" text and icon */
+}
+
+ /* Style for the send button on hover */
+.chat-input-container .send-button:hover {
+    background-color: #4a9ad1; /* Darker shade on hover */
+}
+
+/* Style for the end button */
+ .chat-input-container .end-button {
+     flex-shrink: 0;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 25px;
+     background-color: #E57373; /* Reddish color for end button */
+     color: white;
+     font-family: 'Inter', sans-serif;
+     font-size: 1rem;
+     cursor: pointer;
+     transition: background-color 0.2s ease-in-out;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .chat-input-container .end-button:hover {
+     background-color: #EF5350; /* Darker red on hover */
+ }
+
+
+.form-select{
+    margin-left:20px;
+    width:15%;
+    background-color: rgba(0,0,0,0);
+    color:white;
+    border-color: #333; /* Match input border */
+    border-radius: 5px;
+}
+.form-select option {
+    background-color: #1c1c1c; /* Dark background for options */
+    color: white; /* White text for options */
+}
+.form-select:focus {
+     border-color: #5DB1EA; /* Highlight color on focus */
+     box-shadow: 0 0 5px rgba(93, 177, 234, 0.5); /* Optional glow */
+}
+
+/* Chat message styles */
+.chat-message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word; /* Break long words */
+}
+
+.user-message {
+    align-self: flex-end; /* Align to the right */
+    background-color: #075E54; /* Dark green for user messages */
+    color: white;
+}
+
+.ai-message {
+    align-self: flex-start; /* Align to the left */
+    background-color: #262D31; /* Dark grey for AI messages */
+    color: white;
+}
+
+.ai-message strong {
+    color: #5DB1EA; /* Highlight rating */
+}
+
+ /* Modal Styles */
+.modal-content {
+    background-color: #1c1c1c; /* Dark background */
+    color: white;
+}
+
+.modal-header {
+    border-bottom-color: #333; /* Dark border */
+}
+
+.modal-footer {
+    border-top-color: #333; /* Dark border */
+}
+
+.modal-title {
+    color: #5DB1EA; /* Highlight title */
+}
+
+.btn-close {
+    filter: invert(1); /* Make close button white */
+}
+
+ /* Typing cursor effect */
+.typing::after {
+  content: '|';
+  animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; } /* Cursor color */
+}
+h1{
+    font-weight:bold;
+    color: transparent;
+    /* Add a third color to the gradient for a potentially smoother loop transition */
+    background-image: linear-gradient(to right, #FFE0F6, #5DB1EA, #FFE0F6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Set the background size to be wider than the text */
+    background-size: 200% auto; /* Adjust percentage as needed for desired effect */
+    /* Apply the animation: name, duration, timing function, iteration count, direction */
+    animation: gradient-animation 1s linear infinite alternate; /* Adjust duration as needed */
+    cursor: pointer;
+}
+.close{
+background-color: #0CA37F;
+color:white;
+width:80px;
+height:40px;
+padding:5px;
+border: none;
+border-radius: 10px;
+cursor: pointer; /* Add cursor pointer */
+}
